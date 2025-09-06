@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, Moon, Settings, User } from "lucide-react";
+import { LogOut, Moon, Settings, TvMinimal, User } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -16,14 +16,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { SidebarTrigger } from "./ui/sidebar";
 
 function Navbar() {
   const { theme, setTheme } = useTheme();
-
   return (
     <nav className="flex p-4 items-center justify-between">
       {/* LEFT */}
-      collapsButton
+      <SidebarTrigger />
+
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href="/">Dashboard</Link>
@@ -38,13 +39,14 @@ function Navbar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => setTheme("light")}>
-              Light
+              <Sun className="h-[1.2rem] w-[1.2rem] mr-2" /> Light
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setTheme("dark")}>
+              <Moon className="h-[1.2rem] w-[1.2rem] mr-2" />
               Dark
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setTheme("system")}>
-              System
+              <TvMinimal className="h-[1.2rem] w-[1.2rem] mr-2" /> System
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
